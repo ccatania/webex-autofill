@@ -1,0 +1,26 @@
+{
+
+  "manifest_version": 2,
+  "name": "Webex Autofill",
+  "version": "1.0",
+   "description": "Autofill name and email on webex meetings.",
+  "content_scripts": [
+    {
+      "matches": ["*://*.webex.com/*"],
+      "js": ["webexAutofill.js"]
+    }
+  ],
+
+  "applications": {
+    "gecko": {
+      "id": "settings-example@mozilla.org"
+    }
+  },
+
+  "options_ui": {
+    "page": "options.html"
+  },
+
+  "permissions": ["storage"]
+
+}
