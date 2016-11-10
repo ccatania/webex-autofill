@@ -2,8 +2,8 @@
 
   "manifest_version": 2,
   "name": "Webex Autofill",
-  "version": "1.0",
-   "description": "Autofill name and email on webex meetings.",
+  "version": "1.2",
+   "description": "Autofill name and email on webex meetings and webex rooms.",
   "content_scripts": [
     {
       "matches": ["*://*.webex.com/*"],

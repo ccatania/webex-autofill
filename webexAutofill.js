@@ -8,11 +8,14 @@ chrome.storage.local.get(null, (res) => {
     email = res.email;
   }
 
-  if (document.getElementById('attendeeName') !== null && document.getElementById('attendeeEmail') !== null) {
-    document.getElementById('attendeeName').value = name;
-    document.getElementById('attendeeEmail').value = email;
-  } else if (document.getElementById('mc-input-screenname') !== null && document.getElementById('mc-input-email') !== null) {
-    document.getElementById('mc-input-screenname').value = name;
-    document.getElementById('mc-input-email').value = email;
+  var nameInput = document.getElementById('attendeeName') !== null ? document.getElementById('attendeeName') : frames[1].document.getElementById('mc-input-screenname');
+  var emailInput = document.getElementById('attendeeEmail') !== null ? document.getElementById('attendeeEmail') : frames[1].document.getElementById('mc-input-email');
+  var joinButton = document.getElementById('mwx-btn-pmr-enter-lobby') !== null ? document.getElementById('mwx-btn-pmr-enter-lobby') : frames[1].document.getElementById('mc-btn-prejoinform');
+
+  nameInput.value = name;
+  emailInput.value = email;
+  if(joinButton !== null) {
+    joinButton.removeAttribute('disabled');
+    joinButton.className = joinButton.className.replace(/\bdisabled|btn_join_gray\b/g, '');
   }
 });
